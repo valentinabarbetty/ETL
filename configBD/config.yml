@@ -1,0 +1,9 @@
+rapidofuriosos:
+  driver: postgresql
+  port: 5432
+  user: postgres
+  db: rapidofuriosos
+  password: root
+  host: localhost
+
+

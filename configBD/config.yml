@@ -6,4 +6,11 @@ rapidofuriosos:
   password: root
   host: localhost
 
+bodega:
+  driver: postgresql
+  port: 5432
+  user: postgres
+  db: bodega_etl
+  password: root
+  host: localhost
 

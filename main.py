@@ -57,13 +57,13 @@ def main():
 
     # Ruta a los notebooks que se deben ejecutar
     notebooks = [
-        #os.path.join("rapido_furiosos", "dimensiones", "dm_cliente.ipynb"),
+        os.path.join("rapido_furiosos", "dimensiones", "dm_cliente.ipynb"),
         os.path.join("rapido_furiosos", "dimensiones", "dm_fecha.ipynb"),
-        #os.path.join("rapido_furiosos", "dimensiones", "dm_sede.ipynb"),
-        #os.path.join("rapido_furiosos", "dimensiones", "dm_tiempo.ipynb"),
-        #os.path.join("rapido_furiosos", "dimensiones", "dm_mensajero.ipynb"),
-        #os.path.join("rapido_furiosos", "hechos", "hecho_fact_mensajeria_cliente_diaria.ipynb"),
-        #os.path.join("rapido_furiosos", "hechos", "hecho_mensajeria_cliente_snapshot.ipynb"),
+        os.path.join("rapido_furiosos", "dimensiones", "dm_sede.ipynb"),
+        os.path.join("rapido_furiosos", "dimensiones", "dm_tiempo.ipynb"),
+        os.path.join("rapido_furiosos", "dimensiones", "dm_mensajero.ipynb"),
+        os.path.join("rapido_furiosos", "hechos", "hecho_fact_mensajeria_cliente_diaria.ipynb"),
+        os.path.join("rapido_furiosos", "hechos", "hecho_mensajeria_cliente_snapshot.ipynb"),
         os.path.join("rapido_furiosos", "hechos", "hecho_novedad.ipynb")
     ]
 

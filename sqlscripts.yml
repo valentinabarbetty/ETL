@@ -1,4 +1,38 @@
-  dim_fecha:
+dim_fecha:
     ALTER TABLE dim_fecha ADD CONSTRAINT pk_fecha_id PRIMARY KEY (key_dim_fecha);
-  fact_novedades:
+
+dim_cliente:
+    ALTER TABLE dim_cliente ADD CONSTRAINT pk_cliente_id PRIMARY KEY (key_dim_cliente);
+
+dim_mensajero:
+    ALTER TABLE dim_mensajero ADD CONSTRAINT pk_mensajero_id PRIMARY KEY (key_dim_mensajero);
+
+dim_sede:
+    ALTER TABLE dim_sede ADD CONSTRAINT pk_sede_id PRIMARY KEY (key_dim_sede);
+
+dim_tiempo:
+    ALTER TABLE dim_tiempo ADD CONSTRAINT pk_tiempo_id PRIMARY KEY (Tiempo_id);
+
+fact_mensajeria_cliente_diaria:
+    ALTER TABLE fact_mensajeria_cliente_diaria ADD CONSTRAINT fk_fact_mensajeria_cliente FOREIGN KEY (key_dim_cliente) REFERENCES dim_cliente(key_dim_cliente);
+        
+    ALTER TABLE fact_mensajeria_cliente_diaria ADD CONSTRAINT fk_fact_mensajeria_fecha FOREIGN KEY (key_dim_fecha) REFERENCES dim_fecha(key_dim_fecha);
+
+fact_novedades:
     ALTER TABLE fact_novedades ADD CONSTRAINT fk_fecha FOREIGN KEY (key_dim_fecha) REFERENCES dim_fecha (key_dim_fecha);
+
+fact_mensajeria_cliente_snapshot:
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_mensajero FOREIGN KEY (key_dim_mensajero) REFERENCES dim_mensajero (key_dim_mensajero);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_fecha_iniciado  FOREIGN KEY (id_fecha_iniciado) REFERENCES dim_fecha (key_dim_fecha);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_fecha_con_mensajero_asignado FOREIGN KEY (id_fecha_con_mensajero_asignado) REFERENCES dim_fecha (key_dim_fecha);  
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_fecha_novedad   FOREIGN KEY (id_fecha_novedad) REFERENCES dim_fecha (key_dim_fecha);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_fecha_recogido_por_mensajero   FOREIGN KEY (id_fecha_recogido_por_mensajero) REFERENCES dim_fecha (key_dim_fecha);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_fecha_entregado_en_destino   FOREIGN KEY (id_fecha_entregado_en_destino) REFERENCES dim_fecha (key_dim_fecha);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_fecha_terminado_completo   FOREIGN KEY (id_fecha_terminado_completo) REFERENCES dim_fecha (key_dim_fecha);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_hora_iniciado  FOREIGN KEY (id_hora_iniciado) REFERENCES dim_tiempo (Tiempo_id);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_hora_con_mensajero_asignado  FOREIGN KEY (id_hora_con_mensajero_asignado) REFERENCES dim_tiempo (Tiempo_id);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_hora_novedad  FOREIGN KEY (id_hora_novedad) REFERENCES dim_tiempo (Tiempo_id);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_hora_recogido_por_mensajero  FOREIGN KEY (id_hora_recogido_por_mensajero) REFERENCES dim_tiempo (Tiempo_id);    
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_hora_entregado_en_destino  FOREIGN KEY (id_hora_entregado_en_destino) REFERENCES dim_tiempo (Tiempo_id);
+    ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_hora_terminado_completo  FOREIGN KEY (id_hora_terminado_completo) REFERENCES dim_tiempo (Tiempo_id);
+

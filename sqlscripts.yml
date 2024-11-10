@@ -1,0 +1,4 @@
+  dim_fecha:
+    ALTER TABLE dim_fecha ADD CONSTRAINT pk_fecha_id PRIMARY KEY (key_dim_fecha);
+  fact_novedades:
+    ALTER TABLE fact_novedades ADD CONSTRAINT fk_fecha FOREIGN KEY (key_dim_fecha) REFERENCES dim_fecha (key_dim_fecha);

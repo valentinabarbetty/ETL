@@ -36,3 +36,5 @@ fact_mensajeria_cliente_snapshot:
     ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_hora_entregado_en_destino  FOREIGN KEY (id_hora_entregado_en_destino) REFERENCES dim_tiempo (Tiempo_id);
     ALTER TABLE fact_mensajeria_cliente_snapshot ADD CONSTRAINT fk_hora_terminado_completo  FOREIGN KEY (id_hora_terminado_completo) REFERENCES dim_tiempo (Tiempo_id);
 
+fact_novedades_clustering:
+    ALTER TABLE fact_novedades_clustering ADD CONSTRAINT fk_fact_novedades_fecha FOREIGN KEY (key_dim_fecha) REFERENCES dim_fecha (key_dim_fecha);

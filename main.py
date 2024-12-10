@@ -46,12 +46,6 @@ def check_if_db_deleted():
     # Ejemplo de retorno:
     return False  # Cambia esto según tu verificación
 
-
-
-
-
-
-
 def main():
 
 
@@ -64,7 +58,8 @@ def main():
         os.path.join("rapido_furiosos", "dimensiones", "dm_mensajero.ipynb"),
         os.path.join("rapido_furiosos", "hechos", "hecho_fact_mensajeria_cliente_diaria.ipynb"),
         os.path.join("rapido_furiosos", "hechos", "hecho_mensajeria_cliente_snapshot.ipynb"),
-        os.path.join("rapido_furiosos", "hechos", "hecho_novedad.ipynb")
+        os.path.join("rapido_furiosos", "hechos", "hecho_novedad.ipynb"),
+        os.path.join("rapido_furiosos", "hechos", "hecho_novedad_clustering.ipynb")
     ]
 
     # Verificar si hay cambios en los datos o si la base de datos ha sido eliminada

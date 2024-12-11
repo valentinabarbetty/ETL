@@ -8,8 +8,8 @@ rapidofuriosos:
 
 bodega:
   driver: postgresql
-  port: 19631
-  user: avnadmin
-  db: defaultdb
-  password: AVNS_bioEowem03jhWeZ2biq
-  host: etluv-etluv.k.aivencloud.com
+  port: 5432
+  user: adminbodega
+  db: bodegaproyecto
+  password: Goddess9039#
+  host: bodega.postgres.database.azure.com

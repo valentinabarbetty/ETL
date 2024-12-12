@@ -45,9 +45,31 @@ def check_if_db_deleted():
     # Implementa la lógica de verificación de eliminación de la base de datos aquí.
     # Ejemplo de retorno:
     return False  # Cambia esto según tu verificación
+def clean_etl_tables():
+    try:
+        conn = psycopg2.connect(
+            dbname=config_etl['db'],
+            user=config_etl['user'],
+            password=config_etl['password'],
+            host=config_etl['host'],
+            port=config_etl['port']
+        )
+        cur = conn.cursor()
+        with open('sqlscripts2.yml', 'r') as f:
+            sql_scripts = yaml.safe_load(f)
+            drop_tables_query = sql_scripts.get('drop_tables', '')
+            if drop_tables_query:
+                cur.execute(drop_tables_query)
+        conn.commit()
+    except Exception as e:
+        print(f"Error al limpiar las tablas: {e}")
+    finally:
+        cur.close()
+        conn.close()
 
 def main():
 
+    clean_etl_tables()
 
     # Ruta a los notebooks que se deben ejecutar
     notebooks = [
@@ -91,4 +113,4 @@ def main():
             cur.execute(val)
             conn.commit()
 if __name__ == "__main__":
-    main()
+    main()  
